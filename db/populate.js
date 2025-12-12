@@ -31,6 +31,23 @@ const CREATE_SINGERS_QUERY = `
     INSERT INTO singers(name) VALUES('Lidia');
     INSERT INTO singers(name) VALUES('Amanda');
 `;
+
+const CREATE_SONGS_QUERY = `
+    CREATE TABLE IF NOT EXISTS songs(
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    original_interpreter TEXT,
+    tempo TEXT,
+    note INT REFERENCES notes(id)
+    );
+
+    INSERT INTO songs(name, original_interpreter, tempo, note)
+        VALUES('God my lord', 'Mariano', '4/4', 2);
+    INSERT INTO songs(name, original_interpreter, tempo, note)
+        VALUES('God my lord2', 'Mariano', '6/8', 7);
+    INSERT INTO songs(name, original_interpreter, tempo, note)
+        VALUES('God my lord3', 'Mariano', '2/4', 9);
+`;
 const connection = argv[2];
 
 async function main() {
@@ -40,6 +57,7 @@ async function main() {
         await pool.connect();
         await pool.query(CREATE_NOTES_QUERY);
         await pool.query(CREATE_SINGERS_QUERY);
+        await pool.query(CREATE_SONGS_QUERY);
         console.log("Done");
     } catch (err) {
         console.error(err);
