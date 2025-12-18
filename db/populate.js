@@ -3,23 +3,23 @@ import { argv } from "node:process";
 import { Pool } from "pg";
 
 const CREATE_NOTES_QUERY = `
-    CREATE TABLE IF NOT EXISTS notes(
+    CREATE TABLE IF NOT EXISTS tones(
     id SERIAL PRIMARY KEY,
     name CHAR(10) NOT NULL
     );
 
-    INSERT INTO notes(name) VALUES('Do');
-    INSERT INTO notes(name) VALUES('Do#');
-    INSERT INTO notes(name) VALUES('Re');
-    INSERT INTO notes(name) VALUES('Re#');
-    INSERT INTO notes(name) VALUES('Mi');
-    INSERT INTO notes(name) VALUES('Fa');
-    INSERT INTO notes(name) VALUES('Fa#');
-    INSERT INTO notes(name) VALUES('Sol');
-    INSERT INTO notes(name) VALUES('Sol#');
-    INSERT INTO notes(name) VALUES('La');
-    INSERT INTO notes(name) VALUES('La#');
-    INSERT INTO notes(name) VALUES('Si');
+    INSERT INTO tones(name) VALUES('C');
+    INSERT INTO tones(name) VALUES('C#');
+    INSERT INTO tones(name) VALUES('D');
+    INSERT INTO tones(name) VALUES('D#');
+    INSERT INTO tones(name) VALUES('E');
+    INSERT INTO tones(name) VALUES('E#');
+    INSERT INTO tones(name) VALUES('F#');
+    INSERT INTO tones(name) VALUES('G');
+    INSERT INTO tones(name) VALUES('G#');
+    INSERT INTO tones(name) VALUES('A');
+    INSERT INTO tones(name) VALUES('A#');
+    INSERT INTO tones(name) VALUES('B');
 `;
 const CREATE_SINGERS_QUERY = `
     CREATE TABLE IF NOT EXISTS singers(
@@ -38,15 +38,31 @@ const CREATE_SONGS_QUERY = `
     name TEXT NOT NULL,
     original_interpreter TEXT,
     tempo TEXT,
-    note INT REFERENCES notes(id)
+    tone INT REFERENCES tones(id)
     );
 
-    INSERT INTO songs(name, original_interpreter, tempo, note)
+    INSERT INTO songs(name, original_interpreter, tempo, tone)
         VALUES('God my lord', 'Mariano', '4/4', 2);
-    INSERT INTO songs(name, original_interpreter, tempo, note)
+    INSERT INTO songs(name, original_interpreter, tempo, tone)
         VALUES('God my lord2', 'Mariano', '6/8', 7);
-    INSERT INTO songs(name, original_interpreter, tempo, note)
+    INSERT INTO songs(name, original_interpreter, tempo, tone)
         VALUES('God my lord3', 'Mariano', '2/4', 9);
+`;
+
+const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
+    CREATE TABLE IF NOT EXISTS songs_and_singers(
+        id SERIAL PRIMARY KEY,
+        name INT REFERENCES songs(id),
+        singer INT REFERENCES tones(id),
+        tone INT REFERENCES tones(id)
+    );
+
+    INSERT INTO songs_and_singers(name, singer, tone)
+        VALUES(1,3,5);
+    INSERT INTO songs_and_singers(name, singer, tone)
+        VALUES(3,1,4);
+    INSERT INTO songs_and_singers(name, singer, tone)
+        VALUES(2,1,9);
 `;
 const connection = argv[2];
 
@@ -58,6 +74,7 @@ async function main() {
         await pool.query(CREATE_NOTES_QUERY);
         await pool.query(CREATE_SINGERS_QUERY);
         await pool.query(CREATE_SONGS_QUERY);
+        await pool.query(CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY);
         console.log("Done");
     } catch (err) {
         console.error(err);
