@@ -8,3 +8,7 @@ export async function getAllSongs() {
     const result = await pool.query("SELECT * FROM songs");
     return result.rows;
 }
+export async function getSongsSingerAndTones() {
+    const result = await pool.query("SELECT * FROM songs_and_singers");
+    return result.rows;
+}
