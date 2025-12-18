@@ -1,0 +1,17 @@
+<html>
+<h1>Songs Page</h1>
+<ul>
+    <% locals.songs.forEach((song)=>{ %>
+        <li>
+            <strong>Name</strong>: <%=song.name%> <br>
+                <strong>Interpreted by</strong>:
+                <%=song.original_interpreter%> <br>
+                    <strong>Tone</strong>: <%=song.tone%> <br>
+                        <strong>Tempo</strong>
+                        <%=song.tempo%> <br>
+        </li>
+        <br><br>
+        <%}) %>
+</ul>
+
+</html>
