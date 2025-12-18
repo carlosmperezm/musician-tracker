@@ -1,8 +1,9 @@
 import { Router } from "express";
+import { getAllSingers } from "../controllers/singerController.js";
 
 const singerRouter = Router();
 
-singerRouter.get("/", (req, res) => res.send("Hello from singers router"));
+singerRouter.get("/", getAllSingers);
 //TODO: Implement singers creation
 
 export default singerRouter;

@@ -1,8 +1,8 @@
 import { Router } from "express";
+import { getAllSongs } from "../controllers/songController.js";
 
 const songRouter = Router();
-
-songRouter.get("/", (req, res) => res.send('Hi from songs routers'));
+songRouter.get("/", getAllSongs);
 
 // TODO: Implement songs creation
 
