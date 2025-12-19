@@ -24,3 +24,6 @@ export async function getToneById(id) {
     const result = await pool.query("SELECT * FROM tones WHERE id=$1", [id])
     return result.rows[0];
 }
+export async function createSinger(name) {
+    await pool.query("INSERT INTO singers(name) VALUES($1)", [name]);
+}

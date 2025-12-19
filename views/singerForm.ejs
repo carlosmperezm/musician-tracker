@@ -1,0 +1,11 @@
+<html>
+<h1>Add new singer</h1>
+<form method="post" action="/singers/new">
+    <label>
+        Name: (more than 2 characters)
+        <input name="singerName" pattern="^[a-zA-Z]+.*\S$" required></input>
+    </label>
+    <button type="submit">Add singer</button>
+</form>
+
+</html>

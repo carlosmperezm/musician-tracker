@@ -6,6 +6,7 @@ import { getAllSongsSingersAndTones } from "../controllers/singerSongToneControl
 const appRouter = Router();
 
 appRouter.get("/", getAllSongsSingersAndTones);
+// TODO: Implement song-singer-tone creation
 
 appRouter.use("/songs", songRouter);
 appRouter.use("/singers", singerRouter)
