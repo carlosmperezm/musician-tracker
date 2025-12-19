@@ -30,3 +30,6 @@ export async function createSinger(name) {
 export async function createSong({ songName, interpreter, tempo, tone }) {
     await pool.query("INSERT INTO songs(name,interpreter,tempo,tone) VALUES($1,$2,$3,$4)", [songName, interpreter, tempo, tone]);
 }
+export async function createSongSingerRecord({ songId, singerId, toneId }) {
+    await pool.query("INSERT INTO songs_and_singers(song,singer,tone) VALUES($1,$2,$3)", [songId, singerId, toneId]);
+}

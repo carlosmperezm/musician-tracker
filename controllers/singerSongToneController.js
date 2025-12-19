@@ -11,3 +11,17 @@ export async function getAllSongsSingersAndTones(req, res) {
     }
     return res.render("home", { songsSingersAndTones });
 }
+export async function getSongSingerForm(req, res) {
+    const songs = await db.getAllSongs();
+    const singers = await db.getAllSingers();
+    res.render("songSingerForm", { songs, singers });
+}
+export async function createSongSinger(req, res) {
+    const newRecord = {
+        songId: req.body.songId,
+        singerId: req.body.singerId,
+        toneId: req.body.toneId
+    };
+    await db.createSongSingerRecord(newRecord);
+    res.redirect("/");
+}
