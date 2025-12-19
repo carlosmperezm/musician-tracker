@@ -1,47 +1,48 @@
 <html>
-<h1>Create a new info</h1>
-<form method="post" action="/new">
-    <label>
-        Song:
-        <select name="songId" required>
-            <option value="">Select a song</option>
-            <% locals.songs.forEach( (song)=> { %>
-                <option value=<%=song.id%>>
-                    <%=song.name%>
-                </option>
-                <%});%>
-        </select>
-    </label>
-    <label>
-        Singer:
-        <select name="singerId" required>
-            <option value="">Select a singer</option>
-            <% locals.singers.forEach((singer)=>{ %>
-                <option value=<%=singer.id%>>
-                    <%=singer.name%>
-                </option>
-                <%})%>
-        </select>
-    </label>
-    <label>
-        Tone:
-        <select name="toneId" required>
-            <option value="">Select a Tone</option>
-            <option value="1">C</option>
-            <option value="2">C#</option>
-            <option value="3">D</option>
-            <option value="4">D#</option>
-            <option value="5">E</option>
-            <option value="6">F</option>
-            <option value="7">F#</option>
-            <option value="8">G</option>
-            <option value="9">G#</option>
-            <option value="10">A</option>
-            <option value="11">A#</option>
-            <option value="12">B</option>
-        </select>
-    </label>
-    <button type="submit">Add record</button>
-</form>
+<%- include("partials/navbar.ejs") %>
+    <h1>Create a new info</h1>
+    <form method="post" action="/new">
+        <label>
+            Song:
+            <select name="songId" required>
+                <option value="">Select a song</option>
+                <% locals.songs.forEach( (song)=> { %>
+                    <option value=<%=song.id%>>
+                        <%=song.name%>
+                    </option>
+                    <%});%>
+            </select>
+        </label>
+        <label>
+            Singer:
+            <select name="singerId" required>
+                <option value="">Select a singer</option>
+                <% locals.singers.forEach((singer)=>{ %>
+                    <option value=<%=singer.id%>>
+                        <%=singer.name%>
+                    </option>
+                    <%})%>
+            </select>
+        </label>
+        <label>
+            Tone:
+            <select name="toneId" required>
+                <option value="">Select a Tone</option>
+                <option value="1">C</option>
+                <option value="2">C#</option>
+                <option value="3">D</option>
+                <option value="4">D#</option>
+                <option value="5">E</option>
+                <option value="6">F</option>
+                <option value="7">F#</option>
+                <option value="8">G</option>
+                <option value="9">G#</option>
+                <option value="10">A</option>
+                <option value="11">A#</option>
+                <option value="12">B</option>
+            </select>
+        </label>
+        <button type="submit">Add record</button>
+    </form>
 
 </html>

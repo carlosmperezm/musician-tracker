@@ -1,21 +1,24 @@
 <html>
-<h1>Songs Page</h1>
-<ul>
-    <% locals.songs.forEach((song)=>{ %>
-        <li>
-            <strong>Name</strong>: <%=song.name%> <br>
-                <strong>Interpreted by</strong>:
-                <%=song.interpreter%> <br>
-                    <strong>Tone</strong>: <%=song.tone%> <br>
-                        <strong>Tempo</strong>
-                        <%=song.tempo%> <br>
-        </li>
-        <br><br>
-        <%}) %>
-</ul>
+<%- include("partials/navbar.ejs") %>
+    <h1>Songs Page</h1>
+    <ul>
+        <% locals.songs.forEach((song)=>{ %>
+            <li>
+                <strong>Name</strong>: <%=song.name%> <br>
+                    <strong>Interpreted by</strong>:
+                    <%=song.interpreter%> <br>
+                        <strong>Tone</strong>: <%=song.tone%> <br>
+                            <strong>Tempo</strong>
+                            <%=song.tempo%> <br>
+            </li>
+            <br><br>
+            <%}) %>
+    </ul>
 
-<a href="/songs/new">
-    Add new song
-</a>
+    <a href="/songs/new">
+        Add new song
+    </a>
+
+    <!-- TODO: Add delete and edit button -->
 
 </html>

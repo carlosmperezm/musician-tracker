@@ -1,16 +1,18 @@
 <html>
+<%- include("partials/navbar.ejs") %>
+    <h1>Singer page</h1>
+    <ul>
+        <% locals.singers.forEach((singer)=>{ %>
+            <li>Singer: <%=singer.name%>
+            </li>
+            <% }) %>
 
-<h1>Singer page</h1>
-<ul>
-    <% locals.singers.forEach((singer)=>{ %>
-        <li>Singer: <%=singer.name%>
-        </li>
-        <% }) %>
+    </ul>
 
-</ul>
+    <a href="/singers/new">
+        Add new singer
+    </a>
 
-<a href="/singers/new">
-    Add new singer
-</a>
+    <!-- TODO: Add delete and edit button -->
 
 </html>
