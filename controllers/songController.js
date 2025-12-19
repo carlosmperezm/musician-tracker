@@ -9,3 +9,12 @@ export async function getAllSongs(req, res) {
     }
     return res.render("songsDetails", { songs });
 }
+export async function getSongForm(req, res) {
+    return res.render("songForm");
+}
+export async function createSong(req, res) {
+    const { songName, interpreterName, tempo, tone } = req.body;
+    const newSong = { songName, tempo, tone, interpreter: interpreterName };
+    await db.createSong(newSong);
+    return res.redirect("/songs")
+}

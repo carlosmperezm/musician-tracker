@@ -27,3 +27,6 @@ export async function getToneById(id) {
 export async function createSinger(name) {
     await pool.query("INSERT INTO singers(name) VALUES($1)", [name]);
 }
+export async function createSong({ songName, interpreter, tempo, tone }) {
+    await pool.query("INSERT INTO songs(name,interpreter,tempo,tone) VALUES($1,$2,$3,$4)", [songName, interpreter, tempo, tone]);
+}
