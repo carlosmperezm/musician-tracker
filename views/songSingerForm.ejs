@@ -3,7 +3,7 @@
 <form method="post" action="/new">
     <label>
         Song:
-        <select name="songId">
+        <select name="songId" required>
             <option value="">Select a song</option>
             <% locals.songs.forEach( (song)=> { %>
                 <option value=<%=song.id%>>
@@ -14,7 +14,7 @@
     </label>
     <label>
         Singer:
-        <select name="singerId">
+        <select name="singerId" required>
             <option value="">Select a singer</option>
             <% locals.singers.forEach((singer)=>{ %>
                 <option value=<%=singer.id%>>
@@ -25,7 +25,7 @@
     </label>
     <label>
         Tone:
-        <select name="toneId">
+        <select name="toneId" required>
             <option value="">Select a Tone</option>
             <option value="1">C</option>
             <option value="2">C#</option>
