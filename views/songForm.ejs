@@ -1,0 +1,41 @@
+<html>
+<h1>Add new song</h1>
+<form method="post" action="/songs/new">
+    <label>
+        Song name: (more than 2 characters)
+        <input name="songName" pattern="^[a-zA-Z]+.*\S$" required>
+        </input>
+    </label>
+    <label>
+        Interpreter name: (more than 2 characters)
+        <input name="interpreterName" pattern="^[a-zA-Z]+.*\S$" required>
+        </input>
+    </label>
+    <label>
+        Tempo:
+        <input name="tempo" required>
+        </input>
+    </label>
+    <label>
+        Tone:
+        <select name="tone">
+            <option value="">Select a Tone</option>
+            <option value="1">C</option>
+            <option value="2">C#</option>
+            <option value="3">D</option>
+            <option value="4">D#</option>
+            <option value="5">E</option>
+            <option value="6">F</option>
+            <option value="7">F#</option>
+            <option value="8">G</option>
+            <option value="9">G#</option>
+            <option value="10">A</option>
+            <option value="11">A#</option>
+            <option value="12">B</option>
+        </select>
+    </label>
+
+    <button type="submit">Add song</button>
+</form>
+
+</html>
