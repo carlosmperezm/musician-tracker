@@ -52,16 +52,16 @@ const CREATE_SONGS_QUERY = `
 const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
     CREATE TABLE IF NOT EXISTS songs_and_singers(
         id SERIAL PRIMARY KEY,
-        name INT REFERENCES songs(id),
+        song INT REFERENCES songs(id),
         singer INT REFERENCES tones(id),
         tone INT REFERENCES tones(id)
     );
 
-    INSERT INTO songs_and_singers(name, singer, tone)
+    INSERT INTO songs_and_singers(song, singer, tone)
         VALUES(1,3,5);
-    INSERT INTO songs_and_singers(name, singer, tone)
+    INSERT INTO songs_and_singers(song, singer, tone)
         VALUES(3,1,4);
-    INSERT INTO songs_and_singers(name, singer, tone)
+    INSERT INTO songs_and_singers(song, singer, tone)
         VALUES(2,1,9);
 `;
 const connection = argv[2];

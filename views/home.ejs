@@ -1,0 +1,12 @@
+<html>
+<h1>Home</h1>
+<% locals.songsSingersAndTones.forEach((row)=>{ %>
+    <li>
+        <strong>Song's Name</strong>: <%=row.song%><br>
+            <strong>Singer</strong>: <%=row.singer%><br>
+                <strong>Tone</strong>: <%=row.tone%><br>
+    </li>
+    <br><br>
+    <%}) %>
+
+</html>
