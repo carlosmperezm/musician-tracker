@@ -36,16 +36,16 @@ const CREATE_SONGS_QUERY = `
     CREATE TABLE IF NOT EXISTS songs(
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    original_interpreter TEXT,
+    interpreter TEXT,
     tempo TEXT,
     tone INT REFERENCES tones(id)
     );
 
-    INSERT INTO songs(name, original_interpreter, tempo, tone)
+    INSERT INTO songs(name, interpreter, tempo, tone)
         VALUES('God my lord', 'Mariano', '4/4', 2);
-    INSERT INTO songs(name, original_interpreter, tempo, tone)
+    INSERT INTO songs(name, interpreter, tempo, tone)
         VALUES('God my lord2', 'Mariano', '6/8', 7);
-    INSERT INTO songs(name, original_interpreter, tempo, tone)
+    INSERT INTO songs(name, interpreter, tempo, tone)
         VALUES('God my lord3', 'Mariano', '2/4', 9);
 `;
 
