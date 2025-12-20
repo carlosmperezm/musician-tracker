@@ -12,3 +12,7 @@ export async function createSinger(req, res) {
     await db.createSinger(name);
     return res.redirect("/singers");
 }
+export async function deleteSinger(req, res) {
+    await db.deleteSinger(req.params.singerId);
+    return res.redirect("/singers");
+}

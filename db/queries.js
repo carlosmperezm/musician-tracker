@@ -33,3 +33,6 @@ export async function createSong({ songName, interpreter, tempo, tone }) {
 export async function createSongSingerRecord({ songId, singerId, toneId }) {
     await pool.query("INSERT INTO songs_and_singers(song,singer,tone) VALUES($1,$2,$3)", [songId, singerId, toneId]);
 }
+export async function deleteSinger(id) {
+    await pool.query("DELETE FROM singers WHERE id=$1", [id]);
+}
