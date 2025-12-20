@@ -5,6 +5,9 @@
         <% locals.singers.forEach((singer)=>{ %>
             <li>Singer: <%=singer.name%>
             </li>
+            <a href="<%=`/singers/edit/${singer.id}`%>">
+                <button>Edit</button>
+            </a>
             <a href="<%=`/singers/delete/${singer.id}`%>">
                 <button>Delete</button>
             </a>
@@ -15,7 +18,5 @@
     <a href="/singers/new">
         Add new singer
     </a>
-
-    <!-- TODO: Add delete and edit button -->
 
 </html>

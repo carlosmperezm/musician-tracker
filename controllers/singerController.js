@@ -16,3 +16,8 @@ export async function deleteSinger(req, res) {
     await db.deleteSinger(req.params.singerId);
     return res.redirect("/singers");
 }
+export async function updateSinger(req, res) {
+    const singer = await db.getSingerById(req.params.singerId);
+    await db.deleteSinger(singer.id);
+    return res.render("singerForm", { singer });
+}
