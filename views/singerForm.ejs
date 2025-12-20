@@ -2,7 +2,7 @@
 <%- include("partials/navbar.ejs") %>
     <% if(locals.singer){ %>
         <h1>Update Singer</h1>
-        <form method="post" action="/singers/new">
+        <form method="post" action="/singers/new/<%=singer.id%>">
             <label>
                 Name: (more than 2 characters)
                 <input name="singerName" pattern="^[a-zA-Z]+.*\S$" value="<%=singer.name%>" required></input>

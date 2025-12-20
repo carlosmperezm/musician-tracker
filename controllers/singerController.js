@@ -7,17 +7,17 @@ export async function getAllSingers(req, res) {
 export async function getSingerForm(req, res) {
     return res.render("singerForm");
 }
-export async function createSinger(req, res) {
+export async function createSinger(req, res, next) {
     const name = req.body.singerName;
     await db.createSinger(name);
-    return res.redirect("/singers");
+    next();
 }
-export async function deleteSinger(req, res) {
+export async function deleteSinger(req, res, next) {
     await db.deleteSinger(req.params.singerId);
-    return res.redirect("/singers");
+    next();
 }
-export async function updateSinger(req, res) {
+export async function updateSinger(req, res, next) {
     const singer = await db.getSingerById(req.params.singerId);
-    await db.deleteSinger(singer.id);
-    return res.render("singerForm", { singer });
+    res.render("singerForm", { singer });
+    next()
 }
