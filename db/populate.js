@@ -38,7 +38,7 @@ const CREATE_SONGS_QUERY = `
     name TEXT NOT NULL,
     interpreter TEXT,
     tempo TEXT,
-    tone INT REFERENCES tones(id)
+    tone INT REFERENCES tones(id) ON DELETE SET NULL
     );
 
     INSERT INTO songs(name, interpreter, tempo, tone)
@@ -52,9 +52,9 @@ const CREATE_SONGS_QUERY = `
 const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
     CREATE TABLE IF NOT EXISTS songs_and_singers(
         id SERIAL PRIMARY KEY,
-        song INT REFERENCES songs(id),
-        singer INT REFERENCES tones(id),
-        tone INT REFERENCES tones(id)
+        song INT REFERENCES songs(id) ON DELETE SET NULL,
+        singer INT REFERENCES tones(id) ON DELETE SET NULL, 
+        tone INT REFERENCES tones(id) ON DELETE SET NULL
     );
 
     INSERT INTO songs_and_singers(song, singer, tone)
