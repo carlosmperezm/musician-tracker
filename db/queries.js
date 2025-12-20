@@ -39,3 +39,6 @@ export async function deleteSinger(id) {
 export async function deleteSong(id) {
     await pool.query("DELETE FROM songs WHERE id=$1", [id]);
 }
+export async function deleteSongSingerRecord(recordId) {
+    await pool.query("DELETE FROM songs_and_singers WHERE id=$1", [recordId]);
+}

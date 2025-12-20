@@ -7,14 +7,14 @@ export async function getAllSongsSingersAndTones(req, res) {
         const song = await db.getSongById(Number(row.song));
         const singer = await db.getSingerById(Number(row.singer));
         const tone = await db.getToneById(Number(row.tone));
-        songsSingersAndTones.push({ song: song.name, singer: singer.name, tone: tone.name });
+        songsSingersAndTones.push({ id: row.id, song: song.name, singer: singer.name, tone: tone.name });
     }
     return res.render("home", { songsSingersAndTones });
 }
 export async function getSongSingerForm(req, res) {
     const songs = await db.getAllSongs();
     const singers = await db.getAllSingers();
-    res.render("songSingerForm", { songs, singers });
+    return res.render("songSingerForm", { songs, singers });
 }
 export async function createSongSinger(req, res) {
     const newRecord = {
@@ -23,5 +23,9 @@ export async function createSongSinger(req, res) {
         toneId: req.body.toneId
     };
     await db.createSongSingerRecord(newRecord);
-    res.redirect("/");
+    return res.redirect("/");
+}
+export async function deleteRecord(req, res) {
+    await db.deleteSongSingerRecord(req.params.recordId);
+    return res.redirect("/");
 }

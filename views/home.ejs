@@ -7,6 +7,9 @@
                 <strong>Singer</strong>: <%=row.singer%><br>
                     <strong>Tone</strong>: <%=row.tone%><br>
         </li>
+        <a href="<%=`/delete/${row.id}`%>">
+            <button>Delete</button>
+        </a>
         <br><br>
         <%}) %>
 
