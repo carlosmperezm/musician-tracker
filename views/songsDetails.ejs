@@ -11,6 +11,9 @@
                             <strong>Tempo</strong>
                             <%=song.tempo%> <br>
             </li>
+            <a href="<%=`/songs/delete/${song.id}`%>">
+                <button>Delete</button>
+            </a>
             <br><br>
             <%}) %>
     </ul>
