@@ -12,13 +12,18 @@ export async function getAllSongs(req, res) {
 export async function getSongForm(req, res) {
     return res.render("songForm");
 }
-export async function createSong(req, res) {
+export async function createSong(req, res, next) {
     const { songName, interpreterName, tempo, tone } = req.body;
     const newSong = { songName, tempo, tone, interpreter: interpreterName };
     await db.createSong(newSong);
-    return res.redirect("/songs")
+    next()
 }
-export async function deleteSong(req, res) {
+export async function deleteSong(req, res, next) {
     await db.deleteSong(req.params.songId);
-    return res.redirect("/songs");
+    next();
+}
+export async function updateSong(req, res) {
+    const song = await db.getSongById(req.params.songId);
+    const tone = await db.getToneById(song.tone);
+    return res.render("songForm", { song, toneName: tone.name });
 }

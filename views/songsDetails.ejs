@@ -11,6 +11,9 @@
                             <strong>Tempo</strong>
                             <%=song.tempo%> <br>
             </li>
+            <a href="<%=`/songs/edit/${song.id}`%>">
+                <button>Edit</button>
+            </a>
             <a href="<%=`/songs/delete/${song.id}`%>">
                 <button>Delete</button>
             </a>
@@ -21,7 +24,5 @@
     <a href="/songs/new">
         Add new song
     </a>
-
-    <!-- TODO: Add delete and edit button -->
 
 </html>
