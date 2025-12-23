@@ -8,15 +8,15 @@ import {
     deleteRecord,
     updateRecord
 } from "../controllers/singerSongToneController.js";
-import { getAuthForm } from "../controllers/auth.js";
+import { authenticate, getAuthForm } from "../controllers/auth.js";
 
 const appRouter = Router();
 
 appRouter.get("/", getAllSongsSingersAndTones);
 appRouter.get("/new", getSongSingerForm);
 appRouter.post("/new", createSongSinger, redirectToHome);
-appRouter.get("/delete/:recordId", deleteRecord, redirectToHome);
-appRouter.get("/edit/:recordId", updateRecord);
+appRouter.post("/delete/:recordId", authenticate, deleteRecord, redirectToHome);
+appRouter.post("/edit/:recordId", authenticate, updateRecord);
 appRouter.post("/new/:recordId", deleteRecord, createSongSinger, redirectToHome);
 appRouter.get("/auth/*path", getAuthForm);
 
