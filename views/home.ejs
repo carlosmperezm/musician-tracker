@@ -2,6 +2,7 @@
 <%- include("partials/navbar.ejs") %>
     <h1>Home</h1>
     <% locals.songsSingersAndTones.forEach((row)=>{ %>
+        <!-- TODO: fix after deleting a singer's name app crashes cause can't find the name of an singer that doesn't exist  -->
         <li>
             <strong>Song's Name</strong>: <%=row.song%><br>
                 <strong>Singer</strong>: <%=row.singer%><br>

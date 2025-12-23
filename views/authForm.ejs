@@ -1,0 +1,15 @@
+<html>
+<h1>Please authenticate as an admin before continuing</h1>
+<form method="post" action="/<%=locals.path%>">
+    <label>
+        Username:
+        <input name="username" required>
+    </label>
+    <label>
+        Password:
+        <input name="password" type="password" required>
+    </label>
+    <button type="submit">Authenticate</button>
+</form>
+
+</html>
