@@ -24,7 +24,7 @@ const CREATE_NOTES_QUERY = `
 const CREATE_SINGERS_QUERY = `
     CREATE TABLE IF NOT EXISTS singers(
     id SERIAL PRIMARY KEY,
-    NAME TEXT NOT NULL
+    NAME TEXT
 );
 
     INSERT INTO singers(name) VALUES('Jorge');
@@ -35,7 +35,7 @@ const CREATE_SINGERS_QUERY = `
 const CREATE_SONGS_QUERY = `
     CREATE TABLE IF NOT EXISTS songs(
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT,
     interpreter TEXT,
     tempo TEXT,
     tone INT REFERENCES tones(id) ON DELETE SET NULL
@@ -53,7 +53,7 @@ const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
     CREATE TABLE IF NOT EXISTS songs_and_singers(
         id SERIAL PRIMARY KEY,
         song INT REFERENCES songs(id) ON DELETE CASCADE,
-        singer INT REFERENCES tones(id) ON DELETE CASCADE, 
+        singer INT REFERENCES singers(id) ON DELETE CASCADE, 
         tone INT REFERENCES tones(id) ON DELETE CASCADE
     );
 

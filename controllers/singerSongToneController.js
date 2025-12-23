@@ -4,10 +4,15 @@ export async function getAllSongsSingersAndTones(req, res) {
     const rows = await db.getSongsSingerAndTones();
     const songsSingersAndTones = [];
     for (const row of rows) {
-        const song = await db.getSongById(Number(row.song));
-        const singer = await db.getSingerById(Number(row.singer));
-        const tone = await db.getToneById(Number(row.tone));
-        songsSingersAndTones.push({ id: row.id, song: song.name, singer: singer.name, tone: tone.name });
+        const song = await db.getSongById(row.song);
+        const singer = await db.getSingerById(row.singer);
+        const tone = await db.getToneById(row.tone);
+        songsSingersAndTones.push({
+            id: row.id,
+            song: song.name,
+            singer: singer.name,
+            tone: tone.name
+        });
     }
     return res.render("home", { songsSingersAndTones });
 }
