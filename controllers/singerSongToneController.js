@@ -16,16 +16,28 @@ export async function getSongSingerForm(req, res) {
     const singers = await db.getAllSingers();
     return res.render("songSingerForm", { songs, singers });
 }
-export async function createSongSinger(req, res) {
+export async function createSongSinger(req, res, next) {
     const newRecord = {
         songId: req.body.songId,
         singerId: req.body.singerId,
         toneId: req.body.toneId
     };
     await db.createSongSingerRecord(newRecord);
-    return res.redirect("/");
+    return next();
 }
-export async function deleteRecord(req, res) {
+export async function deleteRecord(req, res, next) {
     await db.deleteSongSingerRecord(req.params.recordId);
-    return res.redirect("/");
+    return next();
+}
+export async function updateRecord(req, res) {
+    const record = await db.getSongSingerAndTone(req.params.recordId);
+    const song = await db.getSongById(record.song);
+    const singer = await db.getSingerById(record.singer);
+    const tone = await db.getToneById(record.tone);
+    const songSingerTone = { id: record.id, song: song, singer: singer, tone: tone };
+    const songs = await db.getAllSongs();
+    const singers = await db.getAllSingers();
+    return res.render(
+        "songSingerForm", { record: songSingerTone, songs, singers }
+    );
 }

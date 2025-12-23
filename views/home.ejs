@@ -7,6 +7,9 @@
                 <strong>Singer</strong>: <%=row.singer%><br>
                     <strong>Tone</strong>: <%=row.tone%><br>
         </li>
+        <a href="<%=`/edit/${row.id}`%>">
+            <button>Edit</button>
+        </a>
         <a href="<%=`/delete/${row.id}`%>">
             <button>Delete</button>
         </a>
@@ -16,7 +19,5 @@
             <a href="/new">
                 Add New Record
             </a>
-
-            <!-- TODO: Add delete and edit button -->
 
 </html>

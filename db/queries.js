@@ -12,6 +12,10 @@ export async function getSongsSingerAndTones() {
     const result = await pool.query("SELECT * FROM songs_and_singers");
     return result.rows;
 }
+export async function getSongSingerAndTone(id) {
+    const result = await pool.query("SELECT * FROM songs_and_singers WHERE id=$1", [id]);
+    return result.rows[0];
+}
 export async function getSingerById(id) {
     const result = await pool.query("SELECT * FROM singers WHERE id=$1", [id])
     return result.rows[0];
