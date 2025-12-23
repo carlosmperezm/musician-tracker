@@ -14,7 +14,7 @@ singerRouter.get("/", getAllSingers);
 singerRouter.get("/new", getSingerForm);
 singerRouter.post("/new", createSinger, redirectToSingers);
 singerRouter.post("/delete/:singerId", authenticate, deleteSinger, redirectToSingers);
-singerRouter.get("/edit/:singerId", updateSinger);
+singerRouter.post("/edit/:singerId", authenticate, updateSinger);
 singerRouter.post("/new/:singerId", deleteSinger, createSinger, redirectToSingers);
 
 
