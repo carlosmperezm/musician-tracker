@@ -8,3 +8,16 @@ main {
         "button button"
     ;
 }
+
+ul a {
+    width: 50px;
+    display: block;
+}
+
+.actions-container {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    gap: 2rem;
+
+}

@@ -16,3 +16,31 @@
     border: #00a3c2 solid;
     cursor: pointer;
 }
+
+.edit {
+    background-color: #0171e3;
+}
+
+.delete {
+    background-color: #BF092F;
+}
+
+.edit,
+.delete {
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    min-width: 75px;
+    height: 30px;
+    text-decoration: none;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.edit:hover,
+.delete:hover {
+    cursor: pointer;
+}

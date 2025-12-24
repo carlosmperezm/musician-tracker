@@ -19,13 +19,27 @@
                         <strong>Song's Name</strong>: <%=row.song%><br>
                             <strong>Singer</strong>: <%=row.singer%><br>
                                 <strong>Tone</strong>: <%=row.tone%><br>
+                                    <div class="actions-container">
+                                        <a href="<%=`auth/edit/${row.id}`%>">
+                                            <button class="edit">
+                                                <span class="material-symbols-outlined edit-icon">
+                                                    edit_square
+                                                </span>
+                                                Edit
+                                            </button>
+                                        </a>
+                                        <a href="<%=`auth/delete/${row.id}`%>">
+                                            <button class="delete">
+                                                <span class="material-symbols-outlined delete-icon">
+                                                    delete
+                                                </span>
+                                                Delete
+                                            </button>
+                                        </a>
+                                    </div>
+
                     </li>
-                    <a href="<%=`auth/edit/${row.id}`%>">
-                        <button>Edit</button>
-                    </a>
-                    <a href="<%=`auth/delete/${row.id}`%>">
-                        <button>Delete</button>
-                    </a>
+
                     <br><br>
                     <%}) %>
 
