@@ -35,15 +35,16 @@ input {
 }
 
 input:focus-visible {
-    outline-color: var(--accent-color2);
+    outline-color: var(--remark-color);
 }
+
 
 button {
     text-decoration: none;
     border-radius: 5px;
     padding: 10px;
     font-size: 1.2rem;
-    background-color: var(--text-color);
+    background-color: var(--accent-color5);
 }
 
 @media only screen and (width<900px) {
@@ -83,7 +84,7 @@ button {
     }
 
     form {
-        width: 40%;
+        width: 30%;
         border-top-right-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
     }
