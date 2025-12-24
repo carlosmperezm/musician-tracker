@@ -2,7 +2,6 @@
 
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
-    <link rel="stylesheet" href="/css/resets.css" />
     <link rel="stylesheet" href="/css/singer-page.css" />
     <link rel="stylesheet" href="/css/buttons.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -11,22 +10,38 @@
 <body>
     <%- include("partials/navbar.ejs") %>
         <main>
-
-            <h1>Singer page</h1>
+            <h1>Singers</h1>
+            <div class="headers">
+                <p class="name">Name</p>
+                <p class="actions">Actions</p>
+            </div>
             <ul>
                 <% locals.singers.forEach((singer)=>{ %>
-                    <li>Singer: <%=singer.name%>
+                    <li>
+                        <p class="name">
+                            <%=singer.name%>
+                        </p>
+                        <div class="actions-container">
+                            <a href="<%=`auth/singers/edit/${singer.id}`%>">
+                                <button class="edit">
+                                    <span class="material-symbols-outlined edit-icon">
+                                        edit_square
+                                    </span>
+                                    Edit
+                                </button>
+                            </a>
+                            <a href="<%=`/auth/singers/delete/${singer.id}`%>">
+                                <button class="delete">
+                                    <span class="material-symbols-outlined delete-icon">
+                                        delete
+                                    </span>
+                                    Delete
+                                </button>
+                            </a>
+                        </div>
                     </li>
-                    <a href="<%=`auth/singers/edit/${singer.id}`%>">
-                        <button>Edit</button>
-                    </a>
-                    <a href="<%=`/auth/singers/delete/${singer.id}`%>">
-                        <button>Delete</button>
-                    </a>
                     <% }) %>
-
             </ul>
-
             <a href="/singers/new" class="button">
                 Add new singer
             </a>
