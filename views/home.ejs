@@ -2,7 +2,6 @@
 
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
-    <link rel="stylesheet" href="/css/resets.css" />
     <link rel="stylesheet" href="/css/home-page.css" />
     <link rel="stylesheet" href="/css/buttons.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -11,36 +10,43 @@
 <body>
     <%- include("partials/navbar.ejs") %>
         <main>
-            <!-- TODO: Is it better each page pull the styles from the same file? or each one has its own separate css file ? -->
-            <h1>Home</h1>
+            <div class="headers">
+                <p class="song">Song</p>
+                <p class="singer">Singer</p>
+                <p class="tone">Tone</p>
+                <p class="actions">Actions</p>
+            </div>
             <ul>
                 <% locals.songsSingersAndTones.forEach((row)=>{ %>
                     <li>
-                        <strong>Song's Name</strong>: <%=row.song%><br>
-                            <strong>Singer</strong>: <%=row.singer%><br>
-                                <strong>Tone</strong>: <%=row.tone%><br>
-                                    <div class="actions-container">
-                                        <a href="<%=`auth/edit/${row.id}`%>">
-                                            <button class="edit">
-                                                <span class="material-symbols-outlined edit-icon">
-                                                    edit_square
-                                                </span>
-                                                Edit
-                                            </button>
-                                        </a>
-                                        <a href="<%=`auth/delete/${row.id}`%>">
-                                            <button class="delete">
-                                                <span class="material-symbols-outlined delete-icon">
-                                                    delete
-                                                </span>
-                                                Delete
-                                            </button>
-                                        </a>
-                                    </div>
-
+                        <p class="song">
+                            <%=row.song%>
+                        </p>
+                        <p class="singer">
+                            <%=row.singer%>
+                        </p>
+                        <p class="tone">
+                            <%=row.tone%>
+                        </p>
+                        <div class="actions-container">
+                            <a href="<%=`auth/edit/${row.id}`%>">
+                                <button class="edit">
+                                    <span class="material-symbols-outlined edit-icon">
+                                        edit_square
+                                    </span>
+                                    Edit
+                                </button>
+                            </a>
+                            <a href="<%=`auth/delete/${row.id}`%>">
+                                <button class="delete">
+                                    <span class="material-symbols-outlined delete-icon">
+                                        delete
+                                    </span>
+                                    Delete
+                                </button>
+                            </a>
+                        </div>
                     </li>
-
-                    <br><br>
                     <%}) %>
 
             </ul>

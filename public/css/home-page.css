@@ -1,23 +1,64 @@
+@import "./resets.css";
+@import "./variables.css";
+
 main {
-    background: linear-gradient(#b0dff1, #d8ecf3, #f0f4f5);
-    min-height: 100vh;
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "content picture"
-        "button button"
-    ;
+    background: linear-gradient(var(--background-color3),
+            var(--background-color2),
+            var(--background-color1));
+    height: 100%;
+    padding: .5rem;
 }
 
-ul a {
-    width: 50px;
-    display: block;
+h1 {
+    place-self: center;
+}
+
+.headers {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    padding: .2rem;
+    border-bottom: var(--accent-color2) solid;
+    font-weight: bold;
+}
+
+.song {
+    grid-column: 1;
+}
+
+.singer {
+    grid-column: 2;
+}
+
+.tone {
+    grid-column: 3;
+}
+
+.actions,
+.actions-container {
+    grid-column: 4;
+    text-align: center;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    align-items: center;
+    padding: .2rem;
+}
+
+li:hover {
+    background-color: var(--accent-color2);
 }
 
 .actions-container {
     display: flex;
-    width: 200px;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: end;
+    gap: 1rem;
+}
 
+.button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
 }

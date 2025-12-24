@@ -1,9 +1,12 @@
+@import "./resets.css";
+@import "./variables.css";
+
 nav {
-    background-color: #00000012;
+    background-color: var(--navbar-background-color);
     padding: 0.7rem;
     backdrop-filter: blur(3px);
-    position: fixed;
-    width: 100%;
+    position: sticky;
+    top: 0;
 }
 
 .links {

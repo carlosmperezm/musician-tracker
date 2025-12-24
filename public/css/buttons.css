@@ -1,5 +1,8 @@
+@import "./resets.css";
+@import "./variables.css";
+
 .button {
-    background-color: #00a3c2;
+    background-color: var(--accent-color1);
     color: black;
     text-decoration: none;
     border-radius: 5px;
@@ -13,34 +16,27 @@
 
 .button:hover {
     background-color: transparent;
-    border: #00a3c2 solid;
-    cursor: pointer;
+    border: var(--accent-color1) solid;
 }
 
 .edit {
-    background-color: #0171e3;
+    background-color: var(--accent-color3);
 }
 
 .delete {
-    background-color: #BF092F;
+    background-color: var(--accent-color4);
 }
 
 .edit,
 .delete {
     text-decoration: none;
-    border-radius: 5px;
-    color: white;
+    border-radius: var(--radius);
+    color: var(--text-color);
     border: none;
     min-width: 75px;
     height: 30px;
-    text-decoration: none;
     padding: 5px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.edit:hover,
-.delete:hover {
-    cursor: pointer;
 }

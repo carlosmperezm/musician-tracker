@@ -6,3 +6,12 @@
 a {
     text-decoration: none;
 }
+
+button {
+    cursor: pointer;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+}
