@@ -1,4 +1,8 @@
 <html>
+
+<head>
+    <link rel="stylesheet" href="/css/buttons.css" />
+</head>
 <h1>Please authenticate as an admin before continuing</h1>
 <form method="post" action="/<%=locals.path%>">
     <label>
@@ -9,7 +13,7 @@
         Password:
         <input name="password" type="password" required>
     </label>
-    <button type="submit">Authenticate</button>
+    <button type="submit" class="button">Authenticate</button>
 </form>
 
 </html>

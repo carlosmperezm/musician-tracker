@@ -1,4 +1,10 @@
 main {
     background: linear-gradient(#b0dff1, #d8ecf3, #f0f4f5);
     min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "content picture"
+        "button button"
+    ;
 }
