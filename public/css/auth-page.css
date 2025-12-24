@@ -8,13 +8,14 @@ body {
 }
 
 main {
-    height: 90%;
-    padding: .5rem;
+    height: 100%;
+    padding: 4rem;
     max-width: 1000px;
 }
 
 h1 {
     text-align: center;
+    font-size: 3rem;
 }
 
 form {
@@ -24,11 +25,11 @@ form {
     align-items: center;
     justify-content: center;
     background-color: var(--accent-color1);
-    gap: 2rem;
+    gap: 4rem;
 }
 
 input {
-    font-size: 1.1rem;
+    font-size: 3rem;
     border-radius: var(--radius);
     border: none;
     padding: 0.5rem;
@@ -43,30 +44,36 @@ button {
     text-decoration: none;
     border-radius: 5px;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 3rem;
     background-color: var(--accent-color5);
+    color: var(--text-color2);
+    border: var(--text-color2) solid;
 }
 
-@media only screen and (width<900px) {
-    main {
-        width: 100%;
-        display: grid;
-        place-items: center;
-    }
 
-    .image-container {
-        display: none;
-    }
-
-    form {
-        max-width: 70%;
-        height: 55%;
-        min-height: min-content;
-        border-radius: var(--radius);
-    }
+/* /////////////// */
+main {
+    width: 100%;
+    display: grid;
+    place-items: center;
 }
 
-@media only screen and (width>=900px) {
+.image-container {
+    display: none;
+}
+
+form {
+    /* max-width: 70%; */
+    height: 100%;
+    min-height: min-content;
+    border-radius: var(--radius);
+    background-image: url("../pictures/admin-page.jpg");
+    background-size: cover;
+    color: var(--text-color);
+    width: 100%;
+}
+
+@media screen and (width>=1000px) {
     main {
         width: 90%;
         display: flex;
@@ -74,6 +81,7 @@ button {
     }
 
     .image-container {
+        display: block;
         background-image: url("../pictures/admin-page.jpg");
         background-position: center;
         background-size: cover;
@@ -84,8 +92,11 @@ button {
     }
 
     form {
-        width: 30%;
+        max-width: 30%;
         border-top-right-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
+        background-image: unset;
+        height: 100%;
+
     }
 }
