@@ -3,31 +3,34 @@
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/resets.css" />
+    <link rel="stylesheet" href="/css/singer-form.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
     <%- include("partials/navbar.ejs") %>
-        <% if(locals.singer){ %>
-            <h1>Update Singer</h1>
-            <form method="post" action="/singers/new/<%=singer.id%>">
-                <label>
-                    Name: (more than 2 characters)
-                    <input name="singerName" pattern="^[a-zA-Z]+.*\S$" value="<%=singer.name%>" required></input>
-                </label>
-                <button type="submit">Update singer</button>
-            </form>
-            <%}else{%>
-                <h1>Add new singer</h1>
-                <form method="post" action="/singers/new">
+        <main>
+            <% if(locals.singer){ %>
+                <h1>Update Singer</h1>
+                <form method="post" action="/singers/new/<%=singer.id%>">
                     <label>
                         Name: (more than 2 characters)
-                        <input name="singerName" pattern="^[a-zA-Z]+.*\S$" required></input>
+                        <input name="singerName" pattern="^[a-zA-Z]+.*\S$" value="<%=singer.name%>" required></input>
                     </label>
-                    <button type="submit">Add singer</button>
+                    <button type="submit">Update singer</button>
                 </form>
+                <%}else{%>
+                    <h1>Add new singer</h1>
+                    <form method="post" action="/singers/new">
+                        <label>
+                            Name: (more than 2 characters)
+                            <input name="singerName" pattern="^[a-zA-Z]+.*\S$" required></input>
+                        </label>
+                        <button type="submit">Add singer</button>
+                    </form>
 
-                <%}%>
+                    <%}%>
+        </main>
 </body>
 
 </html>

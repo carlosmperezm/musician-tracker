@@ -3,36 +3,39 @@
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/resets.css" />
+    <link rel="stylesheet" href="/css/song-page.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
+    <main>
 
-    <%- include("partials/navbar.ejs") %>
-        <h1>Songs Page</h1>
-        <ul>
-            <% locals.songs.forEach((song)=>{ %>
-                <li>
-                    <strong>Name</strong>: <%=song.name%> <br>
-                        <strong>Interpreted by</strong>:
-                        <%=song.interpreter%> <br>
-                            <strong>Tone</strong>: <%=song.tone%> <br>
-                                <strong>Tempo</strong>
-                                <%=song.tempo%> <br>
-                </li>
-                <a href="<%=`auth/songs/edit/${song.id}`%>">
-                    <button>Edit</button>
-                </a>
-                <a href="<%=`auth/songs/delete/${song.id}`%>">
-                    <button>Delete</button>
-                </a>
-                <br><br>
-                <%}) %>
-        </ul>
+        <%- include("partials/navbar.ejs") %>
+            <h1>Songs Page</h1>
+            <ul>
+                <% locals.songs.forEach((song)=>{ %>
+                    <li>
+                        <strong>Name</strong>: <%=song.name%> <br>
+                            <strong>Interpreted by</strong>:
+                            <%=song.interpreter%> <br>
+                                <strong>Tone</strong>: <%=song.tone%> <br>
+                                    <strong>Tempo</strong>
+                                    <%=song.tempo%> <br>
+                    </li>
+                    <a href="<%=`auth/songs/edit/${song.id}`%>">
+                        <button>Edit</button>
+                    </a>
+                    <a href="<%=`auth/songs/delete/${song.id}`%>">
+                        <button>Delete</button>
+                    </a>
+                    <br><br>
+                    <%}) %>
+            </ul>
 
-        <a href="/songs/new">
-            Add new song
-        </a>
+            <a href="/songs/new">
+                Add new song
+            </a>
+    </main>
 </body>
 
 </html>

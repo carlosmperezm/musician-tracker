@@ -3,33 +3,37 @@
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/resets.css" />
+    <link rel="stylesheet" href="/css/home-page.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
     <%- include("partials/navbar.ejs") %>
-        <h1>Home</h1>
-        <ul>
-            <% locals.songsSingersAndTones.forEach((row)=>{ %>
-                <li>
-                    <strong>Song's Name</strong>: <%=row.song%><br>
-                        <strong>Singer</strong>: <%=row.singer%><br>
-                            <strong>Tone</strong>: <%=row.tone%><br>
-                </li>
-                <a href="<%=`auth/edit/${row.id}`%>">
-                    <button>Edit</button>
-                </a>
-                <a href="<%=`auth/delete/${row.id}`%>">
-                    <button>Delete</button>
-                </a>
-                <br><br>
-                <%}) %>
-
-                    <a href="/new">
-                        Add New Record
+        <main>
+            <!-- TODO: Is it better each page pull the styles from the same file? or each one has its own separate css file ? -->
+            <h1>Home</h1>
+            <ul>
+                <% locals.songsSingersAndTones.forEach((row)=>{ %>
+                    <li>
+                        <strong>Song's Name</strong>: <%=row.song%><br>
+                            <strong>Singer</strong>: <%=row.singer%><br>
+                                <strong>Tone</strong>: <%=row.tone%><br>
+                    </li>
+                    <a href="<%=`auth/edit/${row.id}`%>">
+                        <button>Edit</button>
                     </a>
-        </ul>
+                    <a href="<%=`auth/delete/${row.id}`%>">
+                        <button>Delete</button>
+                    </a>
+                    <br><br>
+                    <%}) %>
 
+                        <a href="/new">
+                            Add New Record
+                        </a>
+            </ul>
+
+        </main>
 </body>
 
 </html>
