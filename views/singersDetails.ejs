@@ -1,22 +1,31 @@
 <html>
-<%- include("partials/navbar.ejs") %>
-    <h1>Singer page</h1>
-    <ul>
-        <% locals.singers.forEach((singer)=>{ %>
-            <li>Singer: <%=singer.name%>
-            </li>
-            <a href="<%=`auth/singers/edit/${singer.id}`%>">
-                <button>Edit</button>
-            </a>
-            <a href="<%=`/auth/singers/delete/${singer.id}`%>">
-                <button>Delete</button>
-            </a>
-            <% }) %>
 
-    </ul>
+<head>
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/resets.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
 
-    <a href="/singers/new">
-        Add new singer
-    </a>
+<body>
+    <%- include("partials/navbar.ejs") %>
+        <h1>Singer page</h1>
+        <ul>
+            <% locals.singers.forEach((singer)=>{ %>
+                <li>Singer: <%=singer.name%>
+                </li>
+                <a href="<%=`auth/singers/edit/${singer.id}`%>">
+                    <button>Edit</button>
+                </a>
+                <a href="<%=`/auth/singers/delete/${singer.id}`%>">
+                    <button>Delete</button>
+                </a>
+                <% }) %>
+
+        </ul>
+
+        <a href="/singers/new">
+            Add new singer
+        </a>
+</body>
 
 </html>
