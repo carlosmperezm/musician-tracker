@@ -2,42 +2,63 @@
 
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
-    <link rel="stylesheet" href="/css/resets.css" />
     <link rel="stylesheet" href="/css/song-page.css" />
     <link rel="stylesheet" href="/css/buttons.css" />
-
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
-    <main>
-
-        <%- include("partials/navbar.ejs") %>
+    <%- include("partials/navbar.ejs") %>
+        <main>
             <h1>Songs Page</h1>
+            <div class="headers">
+                <p class="name">Name</p>
+                <p class="interpreter">Interpreted by</p>
+                <p class="tone">Tone</p>
+                <p class="tempo">Tempo</p>
+                <p class="actions">Actions</p>
+            </div>
             <ul>
                 <% locals.songs.forEach((song)=>{ %>
                     <li>
-                        <strong>Name</strong>: <%=song.name%> <br>
-                            <strong>Interpreted by</strong>:
-                            <%=song.interpreter%> <br>
-                                <strong>Tone</strong>: <%=song.tone%> <br>
-                                    <strong>Tempo</strong>
-                                    <%=song.tempo%> <br>
+                        <p class="name">
+                            <%=song.name%>
+                        </p>
+                        <p class="interpreter">
+                            <%=song.interpreter%>
+                        </p>
+                        <p class="tone">
+                            <%=song.tone%>
+                        </p>
+                        <p class="tempo">
+                            <%=song.tempo%>
+                        </p>
+                        <div class="actions-container">
+                            <a href="<%=`auth/songs/edit/${song.id}`%>">
+                                <button class="edit">
+                                    <span class="material-symbols-outlined edit-icon">
+                                        edit_square
+                                    </span>
+                                    Edit
+                                </button>
+                            </a>
+                            <a href="<%=`auth/songs/delete/${song.id}`%>">
+                                <button class="delete">
+                                    <span class="material-symbols-outlined delete-icon">
+                                        delete
+                                    </span>
+                                    Delete
+                                </button>
+                            </a>
+                        </div>
                     </li>
-                    <a href="<%=`auth/songs/edit/${song.id}`%>">
-                        <button>Edit</button>
-                    </a>
-                    <a href="<%=`auth/songs/delete/${song.id}`%>">
-                        <button>Delete</button>
-                    </a>
-                    <br><br>
                     <%}) %>
             </ul>
 
             <a href="/songs/new" class="button">
                 Add new song
             </a>
-    </main>
+        </main>
 </body>
 
 </html>
