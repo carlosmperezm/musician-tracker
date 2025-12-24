@@ -56,9 +56,3 @@ li:hover {
     justify-content: end;
     gap: 1rem;
 }
-
-.button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-}
