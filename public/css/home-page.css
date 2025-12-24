@@ -37,7 +37,7 @@ h1 {
 .actions,
 .actions-container {
     grid-column: 4;
-    text-align: center;
+    text-align: end;
 }
 
 li {
