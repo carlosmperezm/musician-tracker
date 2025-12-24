@@ -1,19 +1,23 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/css/buttons.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/auth-page.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
-<h1>Please authenticate as an admin before continuing</h1>
-<form method="post" action="/<%=locals.path%>">
-    <label>
-        Username:
-        <input name="username" required>
-    </label>
-    <label>
-        Password:
-        <input name="password" type="password" required>
-    </label>
-    <button type="submit" class="button">Authenticate</button>
-</form>
+
+<body>
+    <%- include("partials/navbar.ejs") %>
+        <main>
+            <div class="image-container">
+            </div>
+            <form method="post" action="/<%=locals.path%>">
+                <h1>Authentication required</h1>
+                <input placeholder="Username" name="username" required>
+                <input placeholder="Password" name="password" type="password" required>
+                <button type="submit">Authenticate</button>
+            </form>
+        </main>
+</body>
 
 </html>
