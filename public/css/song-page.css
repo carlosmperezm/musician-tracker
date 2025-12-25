@@ -7,7 +7,7 @@ main {
 }
 
 h1 {
-    place-self: center;
+    text-align: center;
 }
 
 .headers {
