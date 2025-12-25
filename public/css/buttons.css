@@ -4,7 +4,7 @@
 .button {
     background-color: var(--accent-color1);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: var(--radius);
     padding: 10px;
     font-size: 1.2rem;
     max-width: 200px;
@@ -15,14 +15,16 @@
 
 .add {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    transform: scale(1.4);
+    bottom: 18rem;
+    right: 8rem;
+    transform: scale(4);
+    display: grid;
+    place-content: center;
 }
 
-.button:hover {
+.add:hover {
     background-color: transparent;
-    border: var(--accent-color1) solid;
+    outline: var(--accent-color1) 1px solid;
     color: var(--text-color2);
 }
 
@@ -50,4 +52,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+@media screen and (width>1000px) {
+    .add {
+        position: fixed;
+        bottom: 5rem;
+        right: 5rem;
+        transform: scale(2);
+    }
+
 }
