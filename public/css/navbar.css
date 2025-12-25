@@ -22,17 +22,12 @@ nav {
 
 .links a {
     text-decoration: none;
-    border: var(--accent-color1) solid;
+    background-color: var(--accent-color2);
     border-radius: var(--radius);
     color: var(--text-color2);
     padding: 2rem;
 }
 
-.links a:hover {
-    background-color: var(--accent-color2);
-    color: var(--text-color);
-    /* TODO: Icon inside link is not changing color as the text does  */
-}
 
 
 .home-icon,
@@ -55,7 +50,15 @@ nav {
     }
 
     .links a {
+        border: var(--accent-color1) solid;
         padding: 0.5rem;
+        background-color: initial;
+    }
+
+    .links a:hover {
+        color: var(--text-color);
+        background-color: var(--accent-color2);
+        /* TODO: Icon inside link is not changing color as the text does  */
     }
 
     .home-icon,

@@ -22,11 +22,7 @@
     place-content: center;
 }
 
-.add:hover {
-    background-color: transparent;
-    outline: var(--accent-color1) 1px solid;
-    color: var(--text-color2);
-}
+
 
 .add-icon {
     color: inherit;
@@ -60,6 +56,12 @@
         bottom: 5rem;
         right: 5rem;
         transform: scale(2);
+    }
+
+    .add:hover {
+        background-color: transparent;
+        outline: var(--accent-color1) 1px solid;
+        color: var(--text-color2);
     }
 
 }
