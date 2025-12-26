@@ -5,7 +5,7 @@ nav {
     background-color: var(--background-color1);
     padding: 0.7rem;
     backdrop-filter: blur(3px);
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
     display: flex;
