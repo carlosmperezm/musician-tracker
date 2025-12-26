@@ -17,6 +17,9 @@ h1 {
     display: none;
 }
 
+li:hover {
+    background-color: var(--accent-color2);
+}
 
 li {
     display: grid;
@@ -119,10 +122,6 @@ button p {
         grid-template-rows: unset;
         grid-template-areas: none;
         align-items: center;
-    }
-
-    li:hover {
-        background-color: var(--accent-color2);
     }
 
     .song,
