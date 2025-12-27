@@ -11,21 +11,14 @@ main {
     height: 100%;
     padding: 4rem;
     max-width: 1000px;
+    width: 100%;
+    display: grid;
+    place-items: center;
 }
 
 h1 {
     text-align: center;
-    font-size: 3rem;
-}
-
-form {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--accent-color1);
-    gap: 4rem;
+    font-size: 5rem;
 }
 
 input {
@@ -40,30 +33,18 @@ input:focus-visible {
 }
 
 
-button {
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 3rem;
-    background-color: var(--accent-color5);
-    color: var(--text-color2);
-    border: var(--text-color2) solid;
-}
-
-
-/* /////////////// */
-main {
-    width: 100%;
-    display: grid;
-    place-items: center;
-}
-
 .image-container {
     display: none;
 }
 
 form {
-    /* max-width: 70%; */
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color1);
+    gap: 4rem;
     height: 100%;
     min-height: min-content;
     border-radius: var(--radius);
@@ -91,12 +72,18 @@ form {
         border-bottom-left-radius: var(--radius);
     }
 
+    h1 {
+        font-size: 2rem;
+    }
+
     form {
+        padding: 0rem;
         max-width: 30%;
         border-top-right-radius: var(--radius);
         border-bottom-right-radius: var(--radius);
         background-image: unset;
         height: 100%;
-
+        justify-content: space-evenly;
+        gap: 1rem;
     }
 }

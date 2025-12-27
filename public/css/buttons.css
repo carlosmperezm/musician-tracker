@@ -50,6 +50,17 @@
     align-items: center;
 }
 
+button[type="submit"] {
+    text-decoration: none;
+    padding: 2rem;
+    font-size: 3.5rem;
+    background-color: var(--accent-color5);
+    color: var(--text-color2);
+    border: var(--text-color2) solid;
+}
+
+
+
 @media screen and (width>1000px) {
     .add {
         position: fixed;
@@ -62,6 +73,12 @@
         background-color: transparent;
         outline: var(--accent-color1) 1px solid;
         color: var(--text-color2);
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+        padding: 1rem;
+        font-size: 1rem;
     }
 
 }

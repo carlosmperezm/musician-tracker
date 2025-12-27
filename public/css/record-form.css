@@ -1,4 +1,16 @@
-main {
-    background: linear-gradient(#d8ecf3, #f0f4f5, #b0dff1);
-    min-height: 100vh;
+@import "./auth-page.css";
+
+select {
+    padding: 1rem;
+    font-size: 3rem;
+    height: 6rem;
+}
+
+@media screen and (width>1000px) {
+    select {
+        padding: 0.5rem;
+        font-size: initial;
+        height: initial;
+    }
+
 }

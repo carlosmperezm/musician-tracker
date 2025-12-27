@@ -15,3 +15,9 @@ button {
 body {
     position: relative;
 }
+
+input,
+select,
+button {
+    border-radius: var(--radius);
+}
