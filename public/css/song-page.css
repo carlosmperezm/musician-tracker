@@ -1,65 +1,202 @@
-main {
-    background: linear-gradient(var(--background-color3),
-            var(--background-color2),
-            var(--background-color1));
-    height: 100%;
-    padding: .5rem;
+@import "./resets.css";
+@import "./variables.css";
+
+body {
+  background: linear-gradient(var(--background-color3),
+      var(--background-color2),
+      var(--background-color1));
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 5rem;
 }
 
 .headers {
-    margin-top: 4rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-    padding: .2rem;
-    border-bottom: var(--accent-color2) solid;
-    font-weight: bold;
-}
-
-.name {
-    grid-column: 1;
-}
-
-.interpreter {
-    grid-column: 2;
-}
-
-.tone {
-    grid-column: 3;
-}
-
-.tempo {
-    grid-column: 4;
-}
-
-.actions,
-.actions-container {
-    grid-column: 5;
-    text-align: end;
-}
-
-li {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-    align-items: center;
-    padding: .2rem;
+  display: none;
 }
 
 li:hover {
-    background-color: var(--accent-color2);
+  background-color: var(--accent-color2);
+}
+
+li {
+  display: grid;
+  align-items: center;
+  padding: 0.5rem;
+  padding-left: 0.7rem;
+  outline: var(--accent-color1) solid;
+  grid-template-columns: 2fr 1fr 4fr 0fr;
+  grid-template-rows: 100px 70px;
+  grid-template-areas:
+    "name name name actions"
+    "interpreter tone tempo actions";
+  font-size: 2rem;
+}
+
+.name {
+  grid-area: name;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.interpreter {
+  grid-area: interpreter;
+  margin-left: 1rem;
+}
+
+.tempo {
+  grid-area: tempo;
+  margin-left: 1rem;
+}
+
+.tone {
+  grid-area: tone;
+  padding-left: 1rem;
 }
 
 .actions-container {
+  grid-area: actions;
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  padding: 5px;
+}
+
+.edit {
+  grid-area: edit;
+}
+
+.delete {
+  grid-area: delete;
+}
+
+.edit,
+.delete {
+  width: 100px;
+}
+
+button span {
+  transform: scale(2.5);
+}
+
+
+.delete li:hover {
+  background-color: var(--accent-color2);
+}
+
+.actions-container {
+  display: flex;
+  height: 100%;
+}
+
+.actions-container a {
+  height: 100%;
+}
+
+.actions-container a button {
+  height: 100%;
+}
+
+button p {
+  display: none;
+}
+
+
+@media screen and (width>1000px) {
+  main {
+    padding: 1rem;
+  }
+
+  .headers {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns:
+      1fr 1fr 100px 1fr 1fr;
+    grid-template-areas: none;
+    padding: 0.2rem;
+    border-bottom: var(--accent-color2) solid;
+    font-weight: bold;
+  }
+
+  li {
+    display: grid;
+    padding-left: initial;
+    padding: 0.2rem;
+    outline: none;
+    grid-template-columns:
+      1fr 1fr 100px 1fr 1fr;
+    grid-template-rows: initial;
+    grid-template-areas: none;
+    align-items: center;
+  }
+
+  .name,
+  .interpreter,
+  .tone,
+  .tempo,
+  .actions,
+  .actions-container {
+    grid-area: none;
+    font-size: initial;
+    font-weight: initial;
+  }
+
+  p {
+    margin: initial;
+    padding: initial;
+  }
+
+  .name {
+    grid-column: 1;
+  }
+
+  .interpreter {
+    grid-column: 2;
+  }
+
+  .tone {
+    grid-column: 3;
+  }
+
+  .tempo {
+    grid-column: 4;
+  }
+
+  .actions,
+  .actions-container {
+    grid-column: 5;
+    text-align: end;
+  }
+
+  .headers p,
+  li p {
+    padding-left: .7rem;
+    margin: 0;
+  }
+
+  button p {
+    display: initial;
+  }
+
+  button span {
+    transform: initial;
+  }
+
+  .actions-container {
     display: flex;
     justify-content: end;
     gap: 1rem;
-}
+  }
 
-.button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+  .edit p,
+  .delete p {
+    display: initial;
+  }
+
+  .edit,
+  .delete {
+    width: initial;
+  }
 }
