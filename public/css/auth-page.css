@@ -8,7 +8,7 @@ body {
 }
 
 main {
-    height: 100%;
+    height: 90%;
     padding: 4rem;
     max-width: 1000px;
     width: 100%;
@@ -85,5 +85,10 @@ form {
         height: 100%;
         justify-content: space-evenly;
         gap: 1rem;
+    }
+
+    input {
+        font-size: initial;
+
     }
 }

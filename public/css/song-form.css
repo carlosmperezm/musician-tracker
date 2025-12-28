@@ -5,3 +5,12 @@ select {
     font-size: 2rem;
     height: 70px;
 }
+
+@media screen and (width>1000px) {
+    select {
+        padding: 0.5rem;
+        font-size: initial;
+        height: initial;
+    }
+
+}

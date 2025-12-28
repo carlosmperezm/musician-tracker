@@ -2,7 +2,6 @@
 
 <head>
     <link rel="stylesheet" href="/css/navbar.css" />
-    <link rel="stylesheet" href="/css/resets.css" />
     <link rel="stylesheet" href="/css/song-form.css" />
     <link rel="stylesheet" href="/css/buttons.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -11,25 +10,21 @@
 <body>
     <%- include("partials/navbar.ejs") %>
         <main>
+            <div class="image-container">
+            </div>
             <%if(locals.song){%>
-                <h1>Edit song</h1>
-
                 <form method="post" action="/songs/new/<%=song.id%>">
-                    <label>
-                        Song name: (more than 2 characters)
-                        <input name="songName" pattern="^[a-zA-Z]+.*\S$" value="<%=song.name%>" required>
-                        </input>
-                    </label>
-                    <label>
-                        Interpreter name: (more than 2 characters)
-                        <input name="interpreterName" pattern="^[a-zA-Z]+.*\S$" value="<%=song.interpreter%>" required>
-                        </input>
-                    </label>
-                    <label>
-                        Tempo:
-                        <input name="tempo" value="<%=song.tempo%>" required>
-                        </input>
-                    </label>
+                    <h1>Edit song</h1>
+                    <input placeholder="Song name" name="songName" pattern="^[a-zA-Z]+.*\S$" value="<%=song.name%>"
+                        required>
+                    </input>
+
+                    <input placeholder="Interpreter name" name="interpreterName" pattern="^[a-zA-Z]+.*\S$"
+                        value="<%=song.interpreter%>" required>
+                    </input>
+
+                    <input placeholder="Tempo" name="tempo" value="<%=song.tempo%>" required>
+                    </input>
                     <label>
                         Tone:
                         <select name="tone" required>
@@ -54,43 +49,31 @@
 
 
                 <%}else{ %>
-                    <h1>Add new song</h1>
                     <form method="post" action="/songs/new">
-                        <label>
-                            Song name: (more than 2 characters)
-                            <input name="songName" pattern="^[a-zA-Z]+.*\S$" required>
-                            </input>
-                        </label>
-                        <label>
-                            Interpreter name: (more than 2 characters)
-                            <input name="interpreterName" pattern="^[a-zA-Z]+.*\S$" required>
-                            </input>
-                        </label>
-                        <label>
-                            Tempo:
-                            <input name="tempo" required>
-                            </input>
-                        </label>
-                        <label>
-                            Tone:
-                            <select name="tone">
-                                <option value="1">Select a Tone(Default C)</option>
-                                <option value="1">C</option>
-                                <option value="2">C#</option>
-                                <option value="3">D</option>
-                                <option value="4">D#</option>
-                                <option value="5">E</option>
-                                <option value="6">F</option>
-                                <option value="7">F#</option>
-                                <option value="8">G</option>
-                                <option value="9">G#</option>
-                                <option value="10">A</option>
-                                <option value="11">A#</option>
-                                <option value="12">B</option>
-                            </select>
-                        </label>
+                        <h1>Add new song</h1>
+                        <input placeholder="Song name" name="songName" pattern="^[a-zA-Z]+.*\S$" required>
+                        </input>
+                        <input placeholder="Interpreter name" name="interpreterName" pattern="^[a-zA-Z]+.*\S$" required>
+                        </input>
+                        <input placeholder="Tempo" name="tempo" required>
+                        </input>
+                        <select name="tone">
+                            <option value="1">Select a Tone(Default C)</option>
+                            <option value="1">C</option>
+                            <option value="2">C#</option>
+                            <option value="3">D</option>
+                            <option value="4">D#</option>
+                            <option value="5">E</option>
+                            <option value="6">F</option>
+                            <option value="7">F#</option>
+                            <option value="8">G</option>
+                            <option value="9">G#</option>
+                            <option value="10">A</option>
+                            <option value="11">A#</option>
+                            <option value="12">B</option>
+                        </select>
 
-                        <button type="submit" class="button">Add song</button>
+                        <button type="submit">Add song</button>
                     </form>
 
                     <%}%>
