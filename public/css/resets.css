@@ -21,3 +21,9 @@ select,
 button {
     border-radius: var(--radius);
 }
+
+p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
