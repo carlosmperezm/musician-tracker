@@ -4,7 +4,7 @@ import path from "node:path";
 import appRouter from "./routes/index.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
 
 //configs
 app.set("views", path.join(import.meta.dirname, "views"));
