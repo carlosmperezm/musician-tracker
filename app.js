@@ -1,10 +1,11 @@
+import "dotenv/config"
 import express from "express";
 import pool from "./db/pool.js";
 import path from "node:path";
 import appRouter from "./routes/index.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //configs
 app.set("views", path.join(import.meta.dirname, "views"));
