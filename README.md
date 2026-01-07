@@ -18,7 +18,7 @@ Allowing to create,update and delete users,songs, and records.
 3. Install dependencies
 
     ```bash
-    node install
+    npm install
     ```
 
 4. You need a PostgreSql database set up and running.
