@@ -64,6 +64,28 @@ const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
     INSERT INTO songs_and_singers(song, singer, tone)
         VALUES(2,1,9);
 `;
+
+const CREATE_SESSION_TABLE = `
+    CREATE TABLE "session" (
+        "sid" varchar NOT NULL COLLATE "default",
+        "sess" json NOT NULL,
+        "expire" timestamp(6) NOT NULL
+    )
+    WITH (OIDS=FALSE);
+
+    ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+    CREATE INDEX "IDX_session_expire" ON "session" ("expire");
+`;
+
+const CREATE_USERS_TABLE = `
+    CREATE TABLE users (
+        id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+        username VARCHAR ( 255 ),
+        password VARCHAR ( 255 )
+    );
+`
+
 const connection = argv[2];
 
 async function main() {
@@ -75,6 +97,8 @@ async function main() {
         await pool.query(CREATE_SINGERS_QUERY);
         await pool.query(CREATE_SONGS_QUERY);
         await pool.query(CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY);
+        await pool.query(CREATE_SESSION_TABLE);
+        await pool.query(CREATE_USERS_TABLE);
         console.log("Done");
     } catch (err) {
         console.error(err);
