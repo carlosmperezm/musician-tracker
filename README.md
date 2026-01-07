@@ -56,5 +56,4 @@ You can run your DB by local or with a Database Hosting provider.
 8. Access the server by going to `http://localhost:<PORT>`.
 
 ## License
-
  [The MIT License](https://github.com/carlosmperezm/musician-tracker/tree/auth?tab=License-1-ov-file#)
