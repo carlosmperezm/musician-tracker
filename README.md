@@ -26,10 +26,10 @@ You can run your DB by local or with a Database Hosting provider.
 
 5. Make sure you have the Database connection string in the environment variables `.env` with the name `DB_CONNECTION` since the app will look for it by this name.
 
-6. The Database is up and running but empty. We need to have a few tables created before moving on.
+6. The Database is up and running but empty. We need to have a few tables created before moving on. To update the database we need the connection string that connects our db.
 
     ```bash
-    node db/populate.js
+    node db/populate.js "<your-connection-string>"
     ```
 
     This script will populate our database with all necessary tables like:
