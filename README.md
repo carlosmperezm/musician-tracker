@@ -40,10 +40,6 @@ You can run your DB by local or with a Database Hosting provider.
     - Notes table to store all notes. This is necessary since will be used in different tables. ( user does not have to create this table or populate since the app will provide all notes already).
     - Records table to store all singers who singed a song and with what note they did it.
 
-    > [!NOTE]
-    > We need to manually create a user in the `users` table with plain password (for the moment) since the sign up functionality is no created yet.
-    > This is important since we need a user already in the database so we can log in therefore the sessions and cookies can be created.
-
 7. Run the app locally
 
     ```bash
@@ -54,5 +50,10 @@ You can run your DB by local or with a Database Hosting provider.
 
 8. Access the server by going to `http://localhost:<PORT>`.
 
+> [!NOTE]
+> We need to manually create a user in the `users` table with plain password (for the moment) since the sign up functionality is no created yet.
+> This is important since we need a user already in the database so we can log in therefore the sessions and cookies can be created.
+
 ## License
+
  [The MIT License](https://github.com/carlosmperezm/musician-tracker/tree/auth?tab=License-1-ov-file#)
