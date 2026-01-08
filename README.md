@@ -24,7 +24,7 @@ Allowing to create,update and delete users,songs, and records.
 4. You need a PostgreSql database set up and running.
 You can run your DB by local or with a Database Hosting provider.
 
-5. Make sure you have the Database connection string in the environment variables `.env` with the name `DB_CONNECTION` since the app will look for it by this name.
+5. Make sure you get the database connection string so that the application can connect to your database.
 
 6. The Database is up and running but empty. We need to have a few tables created before moving on. To update the database we need the connection string that connects our db.
 
@@ -51,8 +51,41 @@ You can run your DB by local or with a Database Hosting provider.
 8. Access the server by going to `http://localhost:<PORT>`.
 
 > [!NOTE]
-> We need to manually create a user in the `users` table with plain password (for the moment) since the sign up functionality is no created yet.
+> By running the populate script. The app will create a user with the following schema
+>
+> ```sql
+> User (
+>   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+>   username VARCHAR ( 255 ),
+>   password VARCHAR ( 255 )
+> )
+> ```
+>
 > This is important since we need a user already in the database so we can log in therefore the sessions and cookies can be created.
+
+## Environment variables
+
+We should have a `.env` file in our root directory of our project, and it might contain the following variables.
+
+```properties
+DB_CONNECTION='<your-db-connection-string>'
+PORT=<custom-port> 
+SESSION_SIGN="<any-word>"
+```
+
+### DB_CONNECTION
+
+Necessary to establish a connection with your database, whether is local or in a hosting provider
+
+This string connection is required also at time of populating the database
+
+### PORT
+
+This is the port where the server is listening. The server has a default port to `3000`. You might want to create this `PORT` in your `.env` if the port 3000 is being used in your system by any other application.
+
+### SESSION_SIGN
+
+This is where express-session look for to sign and validate the cookies and sessions. It does not have to be something special, but it's important toa have in the your `.env` file since can lead errors in the session.
 
 ## License
 
