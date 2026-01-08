@@ -11,11 +11,11 @@ import { authenticate } from "../controllers/auth.js";
 const singerRouter = Router();
 
 singerRouter.get("/", getAllSingers);
-singerRouter.get("/new", getSingerForm);
-singerRouter.post("/new", createSinger, redirectToSingers);
-singerRouter.post("/delete/:singerId", authenticate, deleteSinger, redirectToSingers);
-singerRouter.post("/edit/:singerId", authenticate, updateSinger);
-singerRouter.post("/new/:singerId", deleteSinger, createSinger, redirectToSingers);
+singerRouter.get("/new", authenticate, getSingerForm);
+singerRouter.post("/new", authenticate, createSinger, redirectToSingers);
+singerRouter.get("/delete/:singerId", authenticate, deleteSinger, redirectToSingers);
+singerRouter.get("/edit/:singerId", authenticate, updateSinger);
+singerRouter.post("/new/:singerId", authenticate, deleteSinger, createSinger, redirectToSingers);
 
 
 function redirectToSingers(req, res) {

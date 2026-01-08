@@ -1,6 +1,7 @@
 import { Router } from "express";
 import songRouter from "./songRouter.js";
 import singerRouter from "./singerRouter.js";
+import loginRouter from "./login.js";
 import {
     getAllSongsSingersAndTones,
     getSongSingerForm,
@@ -8,28 +9,21 @@ import {
     deleteRecord,
     updateRecord
 } from "../controllers/singerSongToneController.js";
-import { authenticate, getAuthForm } from "../controllers/auth.js";
-import passport from "passport";
+import { authenticate } from "../controllers/auth.js";
 
 
 const appRouter = Router();
 
 appRouter.get("/", getAllSongsSingersAndTones);
-appRouter.get("/new", getSongSingerForm);
-appRouter.post("/new", createSongSinger, redirectToHome);
-appRouter.post("/delete/:recordId", authenticate, deleteRecord, redirectToHome);
-appRouter.post("/edit/:recordId", authenticate, updateRecord);
-appRouter.post("/new/:recordId", deleteRecord, createSongSinger, redirectToHome);
-// appRouter.get("/auth/*path", getAuthForm);
-appRouter.get("/login", getAuthForm);
-appRouter.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login"
-}));
+appRouter.get("/new", authenticate, getSongSingerForm);
+appRouter.post("/new", authenticate, createSongSinger, redirectToHome);
+appRouter.get("/delete/:recordId", authenticate, deleteRecord, redirectToHome);
+appRouter.get("/edit/:recordId", authenticate, updateRecord);
+appRouter.post("/new/:recordId", authenticate, deleteRecord, createSongSinger, redirectToHome);
 
+appRouter.use("/login", loginRouter);
 appRouter.use("/songs", songRouter);
 appRouter.use("/singers", singerRouter)
-
 
 function redirectToHome(req, res) {
     return res.redirect("/");

@@ -5,11 +5,11 @@ import { authenticate } from "../controllers/auth.js";
 const songRouter = Router();
 songRouter.get("/", getAllSongs);
 
-songRouter.get("/new", getSongForm);
-songRouter.post("/new", createSong, redirectToSongs);
-songRouter.post("/delete/:songId", authenticate, deleteSong, redirectToSongs);
-songRouter.post("/edit/:songId", authenticate, updateSong);
-songRouter.post("/new/:songId", deleteSong, createSong, redirectToSongs);
+songRouter.get("/new", authenticate, getSongForm);
+songRouter.post("/new", authenticate, createSong, redirectToSongs);
+songRouter.get("/delete/:songId", authenticate, deleteSong, redirectToSongs);
+songRouter.get("/edit/:songId", authenticate, updateSong);
+songRouter.post("/new/:songId", authenticate, deleteSong, createSong, redirectToSongs);
 
 
 function redirectToSongs(req, res) {
