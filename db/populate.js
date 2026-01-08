@@ -20,6 +20,29 @@ const CREATE_NOTES_QUERY = `
     INSERT INTO tones(name) VALUES('A#');
     INSERT INTO tones(name) VALUES('B');
 `;
+
+const CREATE_TEMPO_QUERY = `
+    CREATE TABLE IF NOT EXISTS tempos(
+    id SERIAL PRIMARY KEY,
+    name CHAR(5) NOT NULL
+    );
+
+    INSERT INTO tempos(name) VALUES('2/4');
+    INSERT INTO tempos(name) VALUES('2/2');
+    INSERT INTO tempos(name) VALUES('3/8');
+    INSERT INTO tempos(name) VALUES('3/4');
+    INSERT INTO tempos(name) VALUES('3/2');
+    INSERT INTO tempos(name) VALUES('4/8');
+    INSERT INTO tempos(name) VALUES('4/4');
+    INSERT INTO tempos(name) VALUES('4/2');
+    INSERT INTO tempos(name) VALUES('6/8');
+    INSERT INTO tempos(name) VALUES('6/4');
+    INSERT INTO tempos(name) VALUES('9/8');
+    INSERT INTO tempos(name) VALUES('9/4');
+    INSERT INTO tempos(name) VALUES('12/8');
+    INSERT INTO tempos(name) VALUES('12/4');
+`;
+
 const CREATE_SINGERS_QUERY = `
     CREATE TABLE IF NOT EXISTS singers(
     id SERIAL PRIMARY KEY,
@@ -36,16 +59,16 @@ const CREATE_SONGS_QUERY = `
     id SERIAL PRIMARY KEY,
     name TEXT,
     interpreter TEXT,
-    tempo TEXT,
+    tempo INT REFERENCES tempos(id) ON DELETE SET NULL,
     tone INT REFERENCES tones(id) ON DELETE SET NULL
     );
 
     INSERT INTO songs(name, interpreter, tempo, tone)
-        VALUES('God my lord', 'Mariano', '4/4', 2);
+        VALUES('God my lord', 'Mariano', 2, 2);
     INSERT INTO songs(name, interpreter, tempo, tone)
-        VALUES('God my lord2', 'Mariano', '6/8', 7);
+        VALUES('God my lord2', 'Mariano', 1, 7);
     INSERT INTO songs(name, interpreter, tempo, tone)
-        VALUES('God my lord3', 'Mariano', '2/4', 9);
+        VALUES('God my lord3', 'Mariano', 7, 9);
 `;
 
 const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
@@ -75,27 +98,7 @@ const CREATE_USERS_QUERY = `
         VALUES('testUser','test');
 `
 
-const CREATE_TEMPO_QUERY = `
-    CREATE TABLE IF NOT EXISTS tempos(
-    id SERIAL PRIMARY KEY,
-    name CHAR(5) NOT NULL
-    );
 
-    INSERT INTO tempos(name) VALUES('2/4');
-    INSERT INTO tempos(name) VALUES('2/2');
-    INSERT INTO tempos(name) VALUES('3/8');
-    INSERT INTO tempos(name) VALUES('3/4');
-    INSERT INTO tempos(name) VALUES('3/2');
-    INSERT INTO tempos(name) VALUES('4/8');
-    INSERT INTO tempos(name) VALUES('4/4');
-    INSERT INTO tempos(name) VALUES('4/2');
-    INSERT INTO tempos(name) VALUES('6/8');
-    INSERT INTO tempos(name) VALUES('6/4');
-    INSERT INTO tempos(name) VALUES('9/8');
-    INSERT INTO tempos(name) VALUES('9/4');
-    INSERT INTO tempos(name) VALUES('12/8');
-    INSERT INTO tempos(name) VALUES('12/4');
-`;
 
 const connection = argv[2] || process.env.DB_CONNECTION;
 
@@ -104,11 +107,11 @@ async function main() {
     try {
         console.log("Seeding...");
         await pool.connect();
-        await pool.query(CREATE_NOTES_QUERY);
-        await pool.query(CREATE_SINGERS_QUERY);
+        // await pool.query(CREATE_NOTES_QUERY);
+        // await pool.query(CREATE_SINGERS_QUERY);
         await pool.query(CREATE_SONGS_QUERY);
-        await pool.query(CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY);
-        await pool.query(CREATE_USERS_QUERY);
+        // await pool.query(CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY);
+        // await pool.query(CREATE_USERS_QUERY);
         await pool.query(CREATE_TEMPO_QUERY);
         console.log("Done");
     } catch (err) {
