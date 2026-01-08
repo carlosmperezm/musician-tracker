@@ -5,12 +5,15 @@ export async function getAllSongs(req, res) {
     const songs = [];
     for (const song of rows) {
         const tone = await db.getToneById(song.tone);
-        songs.push({ ...song, tone: tone.name });
+        const tempo = await db.getTempoById(song.tempo)
+        songs.push({ ...song, tone, tempo });
     }
     return res.render("songsDetails", { songs });
 }
 export async function getSongForm(req, res) {
-    return res.render("songForm");
+    const tones = await db.getAllNotes();
+    const tempos = await db.getAllTempos();
+    return res.render("songForm", { tones, tempos });
 }
 export async function createSong(req, res, next) {
     const { songName, interpreterName, tempo, tone } = req.body;
@@ -25,5 +28,9 @@ export async function deleteSong(req, res, next) {
 export async function updateSong(req, res) {
     const song = await db.getSongById(req.params.songId);
     const tone = await db.getToneById(song.tone);
-    return res.render("songForm", { song, toneName: tone.name });
+    const tempo = await db.getTempoById(song.tempo);
+    const tempos = await db.getAllTempos();
+    const tones = await db.getAllNotes();
+
+    return res.render("songForm", { song: { ...song, tone, tempo }, tones, tempos, toneName: tone.name });
 }

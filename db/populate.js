@@ -13,7 +13,6 @@ const CREATE_NOTES_QUERY = `
     INSERT INTO tones(name) VALUES('D');
     INSERT INTO tones(name) VALUES('D#');
     INSERT INTO tones(name) VALUES('E');
-    INSERT INTO tones(name) VALUES('E#');
     INSERT INTO tones(name) VALUES('F#');
     INSERT INTO tones(name) VALUES('G');
     INSERT INTO tones(name) VALUES('G#');
@@ -65,7 +64,7 @@ const CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY = `
         VALUES(2,1,9);
 `;
 
-const CREATE_USERS_TABLE = `
+const CREATE_USERS_QUERY = `
     CREATE TABLE users (
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         username VARCHAR ( 255 ),
@@ -73,8 +72,30 @@ const CREATE_USERS_TABLE = `
     );
 
     INSERT INTO users(username, password)
-        VALUES('charles','char123');
+        VALUES('testUser','test');
 `
+
+const CREATE_TEMPO_QUERY = `
+    CREATE TABLE IF NOT EXISTS tempos(
+    id SERIAL PRIMARY KEY,
+    name CHAR(5) NOT NULL
+    );
+
+    INSERT INTO tempos(name) VALUES('2/4');
+    INSERT INTO tempos(name) VALUES('2/2');
+    INSERT INTO tempos(name) VALUES('3/8');
+    INSERT INTO tempos(name) VALUES('3/4');
+    INSERT INTO tempos(name) VALUES('3/2');
+    INSERT INTO tempos(name) VALUES('4/8');
+    INSERT INTO tempos(name) VALUES('4/4');
+    INSERT INTO tempos(name) VALUES('4/2');
+    INSERT INTO tempos(name) VALUES('6/8');
+    INSERT INTO tempos(name) VALUES('6/4');
+    INSERT INTO tempos(name) VALUES('9/8');
+    INSERT INTO tempos(name) VALUES('9/4');
+    INSERT INTO tempos(name) VALUES('12/8');
+    INSERT INTO tempos(name) VALUES('12/4');
+`;
 
 const connection = argv[2] || process.env.DB_CONNECTION;
 
@@ -87,7 +108,8 @@ async function main() {
         await pool.query(CREATE_SINGERS_QUERY);
         await pool.query(CREATE_SONGS_QUERY);
         await pool.query(CREATE_SONGS_SINGERS_NOTES_TABLE_QUERY);
-        await pool.query(CREATE_USERS_TABLE);
+        await pool.query(CREATE_USERS_QUERY);
+        await pool.query(CREATE_TEMPO_QUERY);
         console.log("Done");
     } catch (err) {
         console.error(err);

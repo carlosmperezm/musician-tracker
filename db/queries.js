@@ -8,6 +8,14 @@ export async function getAllSongs() {
     const result = await pool.query("SELECT * FROM songs");
     return result.rows;
 }
+export async function getAllNotes() {
+    const result = await pool.query("SELECT * FROM tones");
+    return result.rows;
+}
+export async function getAllTempos() {
+    const result = await pool.query("SELECT * FROM tempos");
+    return result.rows;
+}
 export async function getSongsSingerAndTones() {
     const result = await pool.query("SELECT * FROM songs_and_singers");
     return result.rows;
@@ -26,6 +34,10 @@ export async function getSongById(id) {
 }
 export async function getToneById(id) {
     const result = await pool.query("SELECT * FROM tones WHERE id=$1", [id])
+    return result.rows[0];
+}
+export async function getTempoById(id) {
+    const result = await pool.query("SELECT * FROM tempos WHERE id=$1", [id])
     return result.rows[0];
 }
 export async function getUserByUsername(username) {

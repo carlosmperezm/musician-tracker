@@ -23,26 +23,27 @@
                         value="<%=song.interpreter%>" required>
                     </input>
 
-                    <input placeholder="Tempo" name="tempo" value="<%=song.tempo%>" required>
+                    <select name="tempo" required>
+                        <option value="<%=song.tempo.id%>">
+                            Select a tempo (Selected <%=song.tempo.name%> )
+                        </option>
+                        <% locals.tempos.forEach((tempo)=>{ %>
+                            <option value=<%=tempo.id%>>
+                                <%=tempo.name%>
+                            </option>
+                            <%})%>
+                    </select>
                     </input>
-                    <label>
-                        Tone:
-                        <select name="tone" required>
-                            <option value="<%=song.tone%>">Select a Tone(Default <%=toneName%>)</option>
-                            <option value="1">C</option>
-                            <option value="2">C#</option>
-                            <option value="3">D</option>
-                            <option value="4">D#</option>
-                            <option value="5">E</option>
-                            <option value="6">F</option>
-                            <option value="7">F#</option>
-                            <option value="8">G</option>
-                            <option value="9">G#</option>
-                            <option value="10">A</option>
-                            <option value="11">A#</option>
-                            <option value="12">B</option>
-                        </select>
-                    </label>
+                    <select name="tone">
+                        <option value="<%=song.tone.id%>">
+                            Select a tone (Selected <%=song.tone.name%> )
+                        </option>
+                        <% locals.tones.forEach((tone)=>{ %>
+                            <option value=<%=tone.id%>>
+                                <%=tone.name%>
+                            </option>
+                            <%})%>
+                    </select>
 
                     <button type="submit">Update song</button>
                 </form>
@@ -55,22 +56,22 @@
                         </input>
                         <input placeholder="Interpreter name" name="interpreterName" pattern="^[a-zA-Z]+.*\S$" required>
                         </input>
-                        <input placeholder="Tempo" name="tempo" required>
+                        <select name="tempo">
+                            <option value="">Select a tempo</option>
+                            <% locals.tempos.forEach((tempo)=>{ %>
+                                <option value=<%=tempo.id%>>
+                                    <%=tempo.name%>
+                                </option>
+                                <%})%>
+                        </select>
                         </input>
                         <select name="tone">
-                            <option value="1">Select a Tone(Default C)</option>
-                            <option value="1">C</option>
-                            <option value="2">C#</option>
-                            <option value="3">D</option>
-                            <option value="4">D#</option>
-                            <option value="5">E</option>
-                            <option value="6">F</option>
-                            <option value="7">F#</option>
-                            <option value="8">G</option>
-                            <option value="9">G#</option>
-                            <option value="10">A</option>
-                            <option value="11">A#</option>
-                            <option value="12">B</option>
+                            <option value="">Select a tone</option>
+                            <% locals.tones.forEach((tone)=>{ %>
+                                <option value=<%=tone.id%>>
+                                    <%=tone.name%>
+                                </option>
+                                <%})%>
                         </select>
 
                         <button type="submit">Add song</button>
