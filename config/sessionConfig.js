@@ -10,8 +10,7 @@ const sessionStore = session({
     secret: process.env.SESSION_SIGN,
     resave: false,
     saveUninitialized: false,
-    // cookie: { maxAge: 24 * 60 * 60 * 1000 } // 1 day
-    cookie: { maxAge: 9000 }
+    cookie: { maxAge: 24 * 60 * 60 * 1000 } // 1 day
 });
 
 export default sessionStore;
